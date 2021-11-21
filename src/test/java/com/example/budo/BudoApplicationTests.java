@@ -12,5 +12,4 @@ class BudoApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
