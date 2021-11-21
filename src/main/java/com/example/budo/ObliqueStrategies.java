@@ -21,12 +21,16 @@ public class ObliqueStrategies {
     public ObliqueStrategies() {
         File file = null;
 
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAA startar oblique");
+
         try {
             file = ResourceUtils.getFile("classpath:apa.txt");
             if (file.exists()) {
               byte[] fileData = Files.readAllBytes(file.toPath());
               String fileContent = new String(fileData);
               listRows = Files.readAllLines(file.toPath());
+              System.out.println("AAAAAAAAAAAAAAAAAAAAAAAA antal strategier: " + listRows.size());
+
               }
             } catch (Exception e) {
               e.printStackTrace();
