@@ -22,6 +22,4 @@ class BudoApplicationTests {
 		//assert
 		assertTrue(nub == 115);
 	}
-
-
 }
