@@ -14,6 +14,8 @@ import java.util.Arrays;
 @SpringBootApplication
 public class BudoApplication {
 
+	private ObliqueStrategies ob = new ObliqueStrategies();
+
 	public static void main(String[] args) {
 		SpringApplication.run(BudoApplication.class, args);
 	}
@@ -28,6 +30,11 @@ public class BudoApplication {
 		return "!Greetings from Spring Rolle!";
 	}
 
+	@GetMapping("/strat")
+	public String strat() {
+		return ob.getStrategy();
+	}
+
 	@Bean
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
@@ -39,12 +46,6 @@ public class BudoApplication {
 			for (String beanName : beanNames) {
 				System.out.println(beanName);
 			}
-
 		};
 	}
-
-
-
-
-
 }
