@@ -14,16 +14,6 @@ class BudoApplicationTests {
 	}
 
 	@Test
-	void randomNumberBasedOnEntries() {
-		//arrange
-		var ob = new ObliqueStrategies();
-		//act
-		int nub = ob.getRandombumber();
-		//assert
-		assertEquals(nub , 33);
-	}
-
-	@Test
 	void noOfLines() throws IOException {
 		//arrange
 		var ob = new ObliqueStrategies();
