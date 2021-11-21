@@ -2,6 +2,7 @@ package com.example.budo;
 
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.util.ResourceUtils;
 
 import java.io.*;
@@ -11,12 +12,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ObliqueStrategies {
 
 
     private List<String> listRows;
+    private String[] alistRows;
 
     public ObliqueStrategies() {
         File file = null;
@@ -24,14 +27,12 @@ public class ObliqueStrategies {
         System.out.println("AAAAAAAAAAAAAAAAAAAAAAAA startar oblique");
 
         try {
-            file = ResourceUtils.getFile("classpath:apa.txt");
-            if (file.exists()) {
-              byte[] fileData = Files.readAllBytes(file.toPath());
-              String fileContent = new String(fileData);
-              listRows = Files.readAllLines(file.toPath());
-              System.out.println("AAAAAAAAAAAAAAAAAAAAAAAA antal strategier: " + listRows.size());
+            InputStream resource = new ClassPathResource("apa.txt").getInputStream();
+            byte[] binaryData = FileCopyUtils.copyToByteArray(resource);
+            String fuu = new String(binaryData, StandardCharsets.UTF_8);
+            String[] alistRows = fuu.split("\\r?\\n");
+            listRows = Arrays.asList(alistRows);
 
-              }
             } catch (Exception e) {
               e.printStackTrace();
         }
@@ -42,6 +43,7 @@ public class ObliqueStrategies {
     }
 
     public String getStrategy() {
+
         return listRows.get(getRandombumber());
     }
 
