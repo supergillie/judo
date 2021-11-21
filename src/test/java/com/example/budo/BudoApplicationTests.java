@@ -13,13 +13,4 @@ class BudoApplicationTests {
 	void contextLoads() {
 	}
 
-	@Test
-	void noOfLines() throws IOException {
-		//arrange
-		var ob = new ObliqueStrategies();
-		//act
-		int nub = ob.numberOfLines();
-		//assert
-		assertTrue(nub == 115);
-	}
 }
